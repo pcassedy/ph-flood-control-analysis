@@ -86,15 +86,14 @@ The dashboard is a single page with four charts, four headline cards, and four f
 
 ```
 flood-control-projects/
-│
+├── dashboard/
+│   └── dashboard_screenshot.png
+│   └── Flood Control Projects.pbix
 ├── data/
 │   └── flood_control_clean.xlsx
-│
-├── dashboard/
-│   │── 00-dashboard.png
-│   │
-│   └── Flood Control Projects.pbix
-│
+├── notebooks/
+│   └── 01_load&clean
+│   └── 02_eda
 └── README.md
 ```
 
