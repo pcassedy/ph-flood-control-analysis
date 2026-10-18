@@ -91,8 +91,7 @@ flood-control-projects/
 │   └── flood_control_clean.xlsx
 │
 ├── dashboard/
-│   ├── screenshots/
-│   │   └── 01-dashboard.png
+│   │── 00-dashboard.png
 │   │
 │   └── Flood Control Projects.pbix
 │
