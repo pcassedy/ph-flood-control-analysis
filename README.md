@@ -2,7 +2,7 @@
 
 An interactive Power BI dashboard examining flood control projects across the Philippines from 2018 to 2025. It answers four questions: when the money was spent, where it went, who built the projects, and how well they were completed.
 
-![Dashboard](dashboard/00-dashboard.png)
+![Dashboard](dashboard/dashboard_screenshot.png)
 
 ---
 
