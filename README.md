@@ -38,7 +38,7 @@ This project follows the money spent on flood control projects in the Philippine
 | **Work types** | 18 types of flood control work |
 
 ## Key Findings
-[Read the full findings](findings.pdf)
+[Read the full findings](Findings.pdf)
 
 **1. When was the money spent?**
 
@@ -67,7 +67,7 @@ This project follows the money spent on flood control projects in the Philippine
 
 
 ## Recommendations
-[Read the full recommendations](recommendations.pdf)
+[Read the full recommendations](Recommendations.pdf)
 
 1. **Focus schedule monitoring on the regions with the highest late rates**, such as Regions IX, X, I, and VI, where about one in five projects finished late.
 2. **Give smaller contracts closer schedule oversight**, since the smallest contracts were late about three to four times as often as the largest.
