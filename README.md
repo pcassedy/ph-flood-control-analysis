@@ -67,7 +67,7 @@ This project follows the money spent on flood control projects in the Philippine
 
 
 ## Recommendations
-**[Read the full recommendations]([Recommendations.pdf)](https://github.com/pcassedy/ph-flood-control-analysis/blob/5f7fa67bc983bf94a77213539999c5194f6764c2/other%20files/Recommendations.pdf)**
+**[Read the full recommendations](https://github.com/pcassedy/ph-flood-control-analysis/blob/5f7fa67bc983bf94a77213539999c5194f6764c2/other%20files/Recommendations.pdf)**
 
 1. **Focus schedule monitoring on the regions with the highest late rates**, such as Regions IX, X, I, and VI, where about one in five projects finished late.
 2. **Give smaller contracts closer schedule oversight**, since the smallest contracts were late about three to four times as often as the largest.
