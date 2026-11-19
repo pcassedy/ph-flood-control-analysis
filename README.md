@@ -1,6 +1,6 @@
 # Philippines Flood Control Projects
 
-An interactive Power BI dashboard examining flood control projects across the Philippines from 2018 to 2025. It answers four questions: when the money was spent, where it went, who built the projects, and how well they were completed.
+**An interactive Power BI dashboard of flood control projects across the Philippines, 2018 to 2025**
 
 ![Dashboard](dashboard/dashboard_screenshot)
 
@@ -8,71 +8,97 @@ An interactive Power BI dashboard examining flood control projects across the Ph
 
 ## Overview
 
-The dashboard is a single page with four charts, four headline cards, and four filters.
+This project follows the money spent on flood control projects in the Philippines by asking when it was spent, which provinces received it, which contractors built the projects, and whether the work was finished on time. The data was cleaned and explored first, then presented in a single-page dashboard that viewers can filter by year, region, province, and type of work.
 
-|                    |                                                                                  |
-| ------------------ | -------------------------------------------------------------------------------- |
-| **Data source**    | [BetterGov Open Data Portal](https://data.bettergov.ph/datasets/2)               |
-| **Coverage**       | 2018–2025 (infrastructure year)                                                  |
-| **Records**        | 9,827 projects across 98 provinces and 16 regions                                |
-| **Contractors**    | 2,409 contractor names (includes joint ventures)                                 |
-| **Work types**     | 18 types of flood control work                                                   |
-| **Tools**          | Power BI Desktop, DAX                                                            |
+## Key Questions
 
----
+| # | Question |
+|---|---|
+| 1 | When was the money spent? |
+| 2 | Where did it go? |
+| 3 | Who built the projects? |
+| 4 | How well did the projects go? |
+
+## Tools
+
+| Tool | Used for |
+|---|---|
+| Python (Jupyter Notebook) | Loading, cleaning, and exploring the data |
+| Power BI Desktop | Building the interactive dashboard |
+| DAX | Measures and calculated columns for the dashboard |
+
+## Dataset
+
+| | |
+|---|---|
+| **Data source** | [BetterGov Open Data Portal](https://data.bettergov.ph/datasets/2) |
+| **Coverage** | 2018–2025 (infrastructure year) |
+| **Records** | 9,827 projects across 98 provinces and 16 regions |
+| **Contractors** | 2,409 contractor names (includes joint ventures) |
+| **Work types** | 18 types of flood control work |
 
 ## Key Findings
+[Read the full findings](findings.pdf)
 
-**When was the money spent?**
+**1. When was the money spent?**
 
 - Total contract cost is **₱545.43 billion** across **9,827** projects.
 - **94%** of the spending happened in **2022 to 2024**, peaking at **₱203 billion in 2023**.
 - 2018 to 2020 combined account for only about ₱3.4 billion, so the early years are thin in this data.
 
-**Where did it go?**
+**2. Where did it go?**
 
 - **Bulacan** received the most, about **₱43.8 billion (8% of the total)**, and was the top province in 2022, 2023, and 2024.
 - Cebu (₱26.6B), Isabela (₱22.9B), Tarlac (₱18.6B), and Camarines Sur (₱17.6B) complete the top five.
 - The top five provinces together hold about **24%** of total spending, and Region III accounts for about **18%**.
 - **Construction of Flood Mitigation Structure** makes up about two-thirds of all spending.
 
-**Who built the projects?**
+**3. Who built the projects?**
 
 - Spending is **not concentrated** in a few contractors. The top 10 contractors hold about **10%** of the total.
 - **Legacy Construction Corporation** has the most projects, and **Alpha & Omega Gen. Contractor & Development Corp.** works in the most provinces (31).
 
-**How well did the projects go?**
+**4. How well did the projects go?**
 
-- **91%** of projects finished on time or early: **65.0% on time** (6,388), **25.8% early** (2,530).
+- **91%** of projects finished on time or early, with **65.0% on time** (6,388) and **25.8% early** (2,530).
 - **9.2% finished late** (905). Those ran a median of about **109 days (3.5 months)** behind the original target date.
 - The typical project took **228 days**, and the average contract cost about **₱55.5 million**.
 
----
+
+
+## Recommendations
+[Read the full recommendations](recommendations.pdf)
+
+1. **Focus schedule monitoring on the regions with the highest late rates**, such as Regions IX, X, I, and VI, where about one in five projects finished late.
+2. **Give smaller contracts closer schedule oversight**, since the smallest contracts were late about three to four times as often as the largest.
+3. **Improve the completeness of the published project data**, including final amounts paid, ongoing projects, and standardized contractor names.
+
+
 
 ## Dashboard
 
-| Section                    | Description                                                                              |
-| -------------------------- | ---------------------------------------------------------------------------------------- |
-| **Spending over time**     | Total contract cost by year. Selecting a year shows spending from 2018 up to that year.  |
-| **Where the funding goes** | Top five provinces by total contract cost, with the highest highlighted.                 |
-| **Top contractors**        | Top five contractors by number of projects, with the highest highlighted.                |
-| **On-time completion**     | Share of projects finished early, on time, or late compared with the original target.    |
-| **Headline cards**         | Total projects, total contract cost, average contract cost, and typical project duration.|
+The dashboard is a single page with four charts, four headline cards, and four filters.
 
-**Filters:** Year, Region, Province, and Type of Work. Every chart and card updates, and clicking any bar or slice filters the other charts.
+| Section | Description |
+|---|---|
+| **Spending over time** | Total contract cost by year. Selecting a year shows spending from 2018 up to that year. |
+| **Where the funding goes** | Top five provinces by total contract cost, with the highest highlighted. |
+| **Top contractors** | Top five contractors by number of projects, with the highest highlighted. |
+| **On-time completion** | Share of projects finished early, on time, or late compared with the original target. |
+| **Headline cards** | Total projects, total contract cost, average contract cost, and typical project duration. |
 
----
+**Filters.** Year, Region, Province, and Type of Work. Every chart and card updates, and clicking any bar or slice filters the other charts.
+
+Open the `.pbix` file in Power BI Desktop to explore the dashboard.
 
 ## Design and Modeling Decisions
 
-- **Cumulative year view:** a separate `Year Axis` table and a `Spend Up To Selected Year` measure let the area chart show every year up to the selected one, instead of only that year.
-- **Dynamic highlighting:** the `Top Province Color` and `Top Contractor Color` measures color the top bar based on the current filters, so the highlight always follows the data.
-- **On-time definition:** the `Completion Status` calculated column compares actual completion with the original target date. A **30-day margin** is used, because without it about 56% of projects would count as late, mostly by a single day.
-- **Missing target dates:** four projects have no original target date. They cannot be classified and are left out of the on-time chart.
-- **Approved budget not used:** the approved budget repeats on every row of a contract that is split into several components, which would overcount it by about ₱11 billion. It was excluded rather than reported inflated.
-- **Typical duration:** this card uses the median, so a few very long projects do not skew it.
-
----
+- **Cumulative year view.** A separate `Year Axis` table and a `Spend Up To Selected Year` measure let the area chart show every year up to the selected one, instead of only that year.
+- **Dynamic highlighting.** The `Top Province Color` and `Top Contractor Color` measures color the top bar based on the current filters, so the highlight always follows the data.
+- **On-time definition.** The `Completion Status` calculated column compares actual completion with the original target date. A **30-day margin** is used, because without it about 56% of projects would count as late, mostly by a single day.
+- **Missing target dates.** Four projects have no original target date. They cannot be classified and are left out of the on-time chart.
+- **Approved budget not used.** The approved budget repeats on every row of a contract that is split into several components, which would overcount it by about ₱11 billion. It was excluded rather than reported inflated.
+- **Typical duration.** This card uses the median, so a few very long projects do not skew it.
 
 ## Limitations
 
@@ -80,26 +106,22 @@ The dashboard is a single page with four charts, four headline cards, and four f
 - **On-time results should not be compared across years.** Later years look more "early" because only completed projects appear in the data.
 - **Contract cost is the awarded amount**, not the final amount paid.
 
----
-
 ## Repository Structure
 
 ```
 flood-control-projects/
+├── README.md
+├── findings.md                      Full findings
+├── recommendations.md               Full recommendations
 ├── dashboard/
-│   └── dashboard_screenshot.png
-│   └── Flood Control Projects.pbix
+│   ├── dashboard_screenshot.png     Dashboard screenshot
+│   └── Flood Control Projects.pbix  Power BI dashboard
 ├── data/
-│   └── flood_control_clean.xlsx
-├── notebooks/
-│   └── 01_load&clean
-│   └── 02_eda
-└── README.md
+│   └── flood_control_clean.xlsx     Cleaned dataset
+└── notebooks/
+    ├── 01_load_and_clean.ipynb      Loading and cleaning
+    └── 02_eda.ipynb                 Exploratory analysis
 ```
-
-Open the `.pbix` file in Power BI Desktop to explore the dashboard.
-
----
 
 ## Credits
 
